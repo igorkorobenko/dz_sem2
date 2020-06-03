@@ -36,14 +36,44 @@ void save(struct students *stud_arr, int n);
 
 int str_num();
 
+//books
+
+struct book {
+    long long ISBN;
+    char author[30];
+    char name[30];
+    int all;
+    int st;
+};
+
+struct book *read_books();
+
+int str_book();
+
+int find_book_ISBN(struct book *book_arr, int n, long long ISBN);
+
+struct book *add_book(struct book *book_arr, int* n);
+
+struct book *new_num(struct book *book_arr, int *n);
+
+void save_books(struct book *book_arr, int n);
+
+void print_top_b();
+void print_bottom_b();
+void print_book(struct book book);
+void printing_all_b(struct book *book_arr,int *n);
 
 // users
 
 struct user {
 	char login[20];
 	char pass[15];
-	char b;
-	char s;
+	char b[2];
+	char s[2];
 };
 
-struct user users* read_users();
+struct user *read_users();
+
+int str_users();
+
+struct user authorizing(struct user *us_arr);

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "students.h"
+#include "functions.h"
 
 
 struct students* read_list(){
@@ -76,14 +76,13 @@ struct students *add_stud(struct students *stud_arr, int* n){
         scanf("%s", stud_new.spec);
 
         		(*n)++;
+        		stud_arr = realloc(stud_arr, (*n+1) * sizeof(struct students));
         		strcpy(stud_arr[*n-1].id, stud_new.id);
         		strcpy(stud_arr[*n-1].fam, stud_new.fam);
         		strcpy(stud_arr[*n-1].name, stud_new.name);
         		strcpy(stud_arr[*n-1].otch, stud_new.otch);
         		strcpy(stud_arr[*n-1].facul, stud_new.facul);
         		strcpy(stud_arr[*n-1].spec, stud_new.spec);
-
-        		stud_arr = realloc(stud_arr, (*n+1) * sizeof(struct students));
 
         		printf("DONE!\n");
         		return stud_arr;
@@ -186,21 +185,6 @@ struct students *recover_back(){
         i++;
 	}
 	fclose(fp);
-
-	// char y;
-	// printf("Would you like to delete last backup? (y/n) ");
-	// scanf("%c", &y);
-
-	// if(y == 'y'){
-	// 	int i = remove(backup);
-	// 	if (i == -1){
-	// 		printf("FAIL!\n");
-	// 	} else {
-	// 		printf("DONE!\n");
-	// 	}
-	// } else if (y == 'n'){
-	// 	printf("Backup saved\n");
-	// }
 
 	printf("List recovered!\n");
 	return back;
