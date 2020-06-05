@@ -68,11 +68,24 @@ struct book *add_book(struct book *book_arr, int *n){
 			return book_arr;
 		}
 
+		char author[30] = "";
+		char c;
+		int i = 0;
 		printf("Author of book: \n");
-        scanf("%s", book_new.author);
-
+        while((c = getchar()) != '\n'){
+        	author[i] = c; 
+        	i++;
+        }
+        strcpy(book_new.author, author);
+        
+        i = 0;
+        char name[30] = "";
         printf("Name of book: \n");
-        scanf("%s", book_new.name);
+        while((c = getchar()) != '\n'){
+        	name[i] = c; 
+        	i++;
+        }
+        strcpy(book_new.name, name);
 
         printf("Number of all books: \n");
         scanf("%d", &book_new.all);

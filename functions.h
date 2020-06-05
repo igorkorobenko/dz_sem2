@@ -68,8 +68,8 @@ void printing_all_b(struct book *book_arr,int *n);
 struct user {
 	char login[20];
 	char pass[15];
-	char b[2];
-	char s[2];
+	char b[10];
+	char s[10];
 };
 
 struct user *read_users();
@@ -77,3 +77,5 @@ struct user *read_users();
 int str_users();
 
 struct user authorizing(struct user *us_arr);
+
+

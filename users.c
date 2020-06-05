@@ -50,6 +50,9 @@ struct user authorizing(struct user *us_arr){
 
 	int flag = 0;
 	struct user using;
+	strcpy(using.b, "");
+	strcpy(using.s, "");
+
 	while(flag == 0){
 
 	//login
@@ -62,11 +65,7 @@ struct user authorizing(struct user *us_arr){
 		for(int i = 0; i < n; i++){
 			if(strcmp(using.login, us_arr[i].login) == 0){
 				k = i;
-				strcpy(using.login, us_arr[i].login);
-			} else if(strcmp(using.login, us_arr[i].login) != 0){
-				// printf("Wrong login\n");
-				// exit(111);
-			}
+			} 
 		}
 		
 
@@ -76,12 +75,12 @@ struct user authorizing(struct user *us_arr){
 	
 		if(strcmp(using.pass, us_arr[k].pass) == 0){
 			flag = 1;
-			strcpy(using.pass, us_arr[k].pass);
 			strcpy(using.b, us_arr[k].b);
 			strcpy(using.s, us_arr[k].s);
 		} else {
 			printf("Wrong password\n");
 		}
 	}
+	
 	return using;
 }
